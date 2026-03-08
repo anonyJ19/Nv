@@ -1,0 +1,266 @@
+body {
+  margin: 0;
+  background: black;
+  /* Fondo negro para la galaxia */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Evita scrolls por el canvas */
+  position: relative;
+}
+
+/* El canvas de Three.js irá al fondo */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* Detrás de la rosa y el texto */
+}
+
+svg.rose {
+  display: block;
+  width: 600px;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.typing-container {
+  position: absolute;
+  left: 40px;
+  top: 50px;
+  width: 300px;
+  z-index: 10;
+  text-align: left;
+}
+
+
+.typing-text {
+  color: #fefefe;
+  font-family: 'VT323', monospace;
+  font-size: 2.2em;
+  margin: 10px 0;
+  width: 100%;
+  white-space: normal;
+  border: none;
+  animation: none;
+  cursor: pointer;
+  transition: font-size 0.3s;
+}
+
+
+/* PETALOS: Brillo solo en bordes */
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8,
+.cls-9,
+.cls-10,
+.cls-11,
+.cls-12,
+.cls-13,
+.cls-14,
+.cls-15,
+.cls-16,
+.cls-17 {
+  fill: #3b0859 !important;
+  stroke: #ffffff;
+  stroke-width: 0.3px;
+  filter: drop-shadow(0 0 3px #ffffff);
+  /* Brillo moderado en bordes */
+}
+
+/* SOMBRA: Morada super oscura */
+.cls-1,
+.cls-2 {
+  fill: #7b377b !important;
+  opacity: 0.8;
+}
+
+#hojas {
+  animation: boingInUp 2s ease infinite alternate;
+}
+
+#tallos {
+  animation: puffIn 2s infinite ease alternate;
+}
+
+#sombra_1 {
+  visibility: hidden;
+}
+
+/* --- AÑADIDO: SOPORTE GALAXIA Y RESPONSIVO --- */
+body {
+  background: black !important;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+svg.rose {
+  z-index: 5;
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  svg.rose {
+    width: 350px !important;
+  }
+
+  .typing-text {
+    font-size: 2.5em !important;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  svg.rose {
+    width: 220px !important;
+  }
+
+  .typing-text {
+    font-size: 2.2em !important;
+  }
+}
+
+@keyframes rose-animation {
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8,
+.cls-9,
+.cls-10,
+.cls-11,
+.cls-12,
+.cls-13,
+.cls-14,
+.cls-15,
+.cls-16,
+.cls-17 {
+  transform: scale(0);
+  transform-origin: center center;
+  opacity: 0;
+  animation: rose-animation 2s ease infinite 0.1s alternate;
+}
+
+@keyframes boingInUp {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateX(-90deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: perspective(800px) rotateX(50deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateX(0deg);
+  }
+}
+
+@keyframes puffIn {
+  0% {
+    opacity: 0;
+    transform: scale(2, 2);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes rose-animation {
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8,
+.cls-9,
+.cls-10,
+.cls-11,
+.cls-12,
+.cls-13,
+.cls-14,
+.cls-15,
+.cls-16,
+.cls-17 {
+  transform: scale(0);
+  transform-origin: center center;
+  opacity: 0;
+  animation: rose-animation 2s ease infinite 0.1s alternate;
+}
+
+@keyframes boingInUp {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateX(-90deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: perspective(800px) rotateX(50deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateX(0deg);
+  }
+}
+
+@keyframes puffIn {
+  0% {
+    opacity: 0;
+    transform: scale(2, 2);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+    filter: blur(0px);
+  }
+}
